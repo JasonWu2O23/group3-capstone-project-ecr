@@ -1,0 +1,22 @@
+{
+  "name": "group3-capstone-project-ecr",
+  "version": "1.0.0",
+  "description": "group 3 capstone project ecr",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasonWu2O23/group3-capstone-project-ecr.git"
+  },
+  "author": "luqman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JasonWu2O23/group3-capstone-project-ecr/issues"
+  },
+  "homepage": "https://github.com/JasonWu2O23/group3-capstone-project-ecr#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
