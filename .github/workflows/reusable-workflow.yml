@@ -1,0 +1,29 @@
+name: Reusable workflow
+
+on:
+  workflow_call:
+    inputs:
+      user-name:
+        required: true
+        type: string
+      address:
+        required: true
+        type: string
+      age:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
+
+jobs:
+  shared-workflow-called:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    
+    - name: Print variables
+      run: |
+        echo "User name: ${{ inputs.user-name }}"
+        echo "Address: ${{ inputs.address }}"
+        echo "Age: ${{ inputs.age }}"
