@@ -26,6 +26,7 @@ jobs:
         run: terraform apply -auto-approve
   create-image:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/dev'
     environment: ${{ github.ref_name }}
     needs: terraform-create
     steps:
@@ -45,7 +46,7 @@ jobs:
         env:
           ECR_REGISTRY: '${{ steps.login-ecr.outputs.registry }}'
           ECR_REPOSITORY: group3-capstone-project-ecr
-          ECR_ENV: ${GITHUB_REF#refs/heads/}
+          ECR_ENV: ${{ github.ref_name }}
           IMAGE_TAG: latest
         run: >
                 # Build a docker container and
