@@ -26,7 +26,7 @@ jobs:
         run: terraform apply -auto-approve
   create-image:
     runs-on: ubuntu-latest
-    environment: ${GITHUB_REF#refs/heads/}
+    environment: ${{ github.ref_name }}
     needs: terraform-create
     steps:
       - name: Check out code
@@ -54,9 +54,9 @@ jobs:
 
                 # be deployed to ECS.
 
-                docker build -t $ECR_REGISTRY/$ECR_REPOSITORY$ECR_ENV:$IMAGE_TAG .
+                docker build -t $ECR_REGISTRY/$ECR_REPOSITORY-$ECR_ENV:$IMAGE_TAG .
 
-                docker push $ECR_REGISTRY/$ECR_REPOSITORY$ECR_ENV:$IMAGE_TAG
+                docker push $ECR_REGISTRY/$ECR_REPOSITORY-$ECR_ENV:$IMAGE_TAG
 
                 echo "::set-output
-                name=image::$ECR_REGISTRY/$ECR_REPOSITORY$ECR_ENV:$IMAGE_TAG"
+                name=image::$ECR_REGISTRY/$ECR_REPOSITORY-$ECR_ENV:$IMAGE_TAG"
