@@ -1,6 +1,19 @@
 name: ci_cd_pipeline
-'on':
+on:
   workflow_call:
+    inputs:
+      user-name:
+        required: true
+        type: string
+      address:
+        required: true
+        type: string
+      age:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
   push:
     branches:
       - main
