@@ -26,7 +26,7 @@ jobs:
         run: terraform apply -auto-approve
   create-image:
     runs-on: ubuntu-latest
-    environment: [dev, uat, prod]
+    environment: ${GITHUB_REF#refs/heads/}
     needs: terraform-create
     steps:
       - name: Check out code
