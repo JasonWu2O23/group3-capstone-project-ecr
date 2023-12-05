@@ -14,9 +14,9 @@ on:
     secrets:
       token:
         required: true
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 jobs:
   terraform-create:
     runs-on: ubuntu-latest
