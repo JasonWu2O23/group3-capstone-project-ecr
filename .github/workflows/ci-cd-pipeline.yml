@@ -22,6 +22,6 @@ jobs:
       - name: Terraform fmt
         run: terraform fmt
       - name: Terraform plan
-        run: terraform plan
+        run: terraform plan -refresh-only
       - name: Terraform apply
-        run: terraform apply -auto-approve
+        run: terraform apply -refresh-only -auto-approve
