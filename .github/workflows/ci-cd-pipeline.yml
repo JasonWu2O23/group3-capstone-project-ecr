@@ -1,16 +1,16 @@
 name: ci_cd_pipeline
 on:
     workflow_call:
-        secrets:
-          token:
-              required: true
-          aws-access-key-id:
-              required: true
-          aws-secret-access-key:
-              required: true
+    
     push:
         branches:
             - main
+
+env:
+     # Credentials for deployment to AWS
+    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    
 jobs:
   terraform-create:
     runs-on: ubuntu-latest
