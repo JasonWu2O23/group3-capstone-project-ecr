@@ -3,7 +3,11 @@ on:
     workflow_call:
         secrets:
           token:
-            required: true
+              required: true
+          aws-access-key-id:
+              required: true
+          aws-secret-access-key:
+              required: true
     push:
         branches:
             - main
