@@ -23,9 +23,9 @@ jobs:
       - name: Terraform fmt
         run: terraform fmt
       - name: Terraform plan
-        run: terraform plan
+        run: terraform plan -var-file=${GITHUB_REF#refs/heads/}.tfvars
       - name: Terraform apply
-        run: terraform apply -auto-approve
+        run: terraform apply -var-file=${GITHUB_REF#refs/heads/}.tfvars -auto-approve
   # create-image:
   #   runs-on: ubuntu-latest
   #   environment: dev
