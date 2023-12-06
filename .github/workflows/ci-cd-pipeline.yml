@@ -1,5 +1,5 @@
 name: ci_cd_pipeline
-'on':
+on:
     workflow_call:
   # push:
   #    branches:
